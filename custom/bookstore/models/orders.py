@@ -23,7 +23,6 @@ class Orders(models.Model):
                                         inverse_name='order_id',
                                         string='Detail Order')
     
-
     @api.model
     def create(self, vals):
         if vals.get('name', 'New') == 'New':
@@ -31,8 +30,8 @@ class Orders(models.Model):
                 'bookstore.orders' or 'New'
             )
         
-        result = super(Orders, self).create(vals)
-        return result
+            result = super(Orders, self).create(vals)
+            return result
 
     @api.depends('orderdetails_ids')
     def _compute_total(self):
@@ -41,6 +40,16 @@ class Orders(models.Model):
                 [('order_id', '=', line.id)]).mapped('subtotal'))
             line.total = result
 
+    @api.ondelete(at_uninstall=False)
+    def __ondelete_order(self):
+        if self.orderdetails_ids:
+            order = []
+            for line in self:
+                order = self.env['bookstore.orderdetails'].search(
+                    [('order_id', '=', line.id)])
+
+            for ob in order:
+                ob.book_id.stock += ob.qty
     
     
 class OrderDetails(models.Model):
@@ -65,6 +74,16 @@ class OrderDetails(models.Model):
     def _onchange_book_id(self):
         if self.book_id.price:
             self.price_per_book = self.book_id.price
+    
+    @api.model
+    def create(self, vals):
+        line = super(OrderDetails, self).create(vals)
+        if line.qty:
+            self.env['bookstore.book'].search(
+                [('id', '=', line.book_id.id)]
+            ).write({'stock': line.book_id.stock - line.qty})
+
+        return line
     
     
     
