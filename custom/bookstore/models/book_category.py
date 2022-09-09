@@ -7,18 +7,18 @@ class BookCategory(models.Model):
     _name = 'bookstore.bookcategory'
     _description = 'Kategori Buku'
 
-    name = fields.Char(string='Kode Kategori Buku',
+    name = fields.Char(string='Nama Kategori')
+    category_code = fields.Char(string='Kode Kategori',
                                 readonly=True,
                                 copy=False,
                                 required=True,
                                 default='New')
-    category_name = fields.Char(string='Nama Kategori')
     
     
     @api.model
     def create(self, vals):
-        if vals.get('name', 'New') == 'New':
-            vals['name'] = self.env['ir.sequence'].next_by_code(
+        if vals.get('category_code', 'New') == 'New':
+            vals['category_code'] = self.env['ir.sequence'].next_by_code(
                 'bookstore.bookcategory' or 'New'
             )
         
