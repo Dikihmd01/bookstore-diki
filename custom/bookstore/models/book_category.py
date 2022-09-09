@@ -13,6 +13,8 @@ class BookCategory(models.Model):
                                 copy=False,
                                 required=True,
                                 default='New')
+    book_ids = fields.One2many(comodel_name='bookstore.book', inverse_name='category_id', string='Daftar Buku')
+    
     
     
     @api.model
