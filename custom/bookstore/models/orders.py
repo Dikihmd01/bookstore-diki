@@ -50,6 +50,31 @@ class Orders(models.Model):
 
             for ob in order:
                 ob.book_id.stock += ob.qty
+    
+    def write(self, vals):
+        for line in self:
+            old_data = self.env['bookstore.orderdetails'].search([('order_id', '=', line.id)])
+            print(old_data)
+
+            for data in old_data:
+                print(str(data.book_id.name) + " " + str(data.qty) + ' ' + str(data.book_id.stock))
+                data.book_id.stock += data.qty
+        
+        line = super(Orders, self).write(vals)
+        
+        for line in self:
+            data_after_edit = self.env['bookstore.orderdetails'].search([('order_id', '=', line.id)])
+            print(old_data)
+            print(data_after_edit)
+
+            for new_data in data_after_edit:
+                if new_data in old_data:
+                    print(new_data.book_id.name + " " + str(new_data.qty) + ' ' + str(new_data.book_id.stock))
+                    new_data.book_id.stock -= new_data.qty
+                else:
+                    pass
+
+        return line
 
 
 class OrderDetails(models.Model):
