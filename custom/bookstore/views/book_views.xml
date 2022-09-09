@@ -76,6 +76,16 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <group name="Supplier" string="Supplier">
+                                            <field name="supplier_id" />
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </sheet>

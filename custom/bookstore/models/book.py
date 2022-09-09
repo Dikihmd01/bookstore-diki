@@ -20,6 +20,8 @@ class Book(models.Model):
                             required=True)
     stock = fields.Integer(string='Stok')
     publisher_id = fields.Many2one(comodel_name='bookstore.publisher', string='Penerbit')
+    supplier_id = fields.Many2one(comodel_name='bookstore.supplier', string='Supplier')
+    
     
 
     @api.model
