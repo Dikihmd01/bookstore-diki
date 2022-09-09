@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- bookstore.bookcategory tree view -->
+    <record id="bookstore_bookcategory_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Kategori Buku</field>
+        <field name="model">bookstore.bookcategory</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="category_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- bookstore.bookcategory form view -->
+    <record id="bookstore_bookcategory_view_form" model="ir.ui.view">
+        <field name="name">Tambah Kategori Buku</field>
+        <field name="model">bookstore.bookcategory</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class="row">
+                        <div class="container">
+                            <div class="oe_title">
+                                <div class="col-md-6">
+                                    <div class="oe_edit_only">
+                                        <label for="name" string="Kode Kategori"/>
+                                    </div>
+                                    <h1>
+                                        <field name="name" class="o_text_overflow"/>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="container">
+                            <div class="col-md-6">
+                                <div class="oe_edit_only">
+                                    <label for="category_name" string="Nama Kategori"/>
+                                </div>
+                                <group>
+                                    <field name="category_name"/>
+                                </group>
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="bookstore_bookcategory_action" model="ir.actions.act_window">
+        <field name="name">Kategori Buku</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bookstore.bookcategory</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem
+        id="bookstore_bookcategory_menu_act"
+        name="Kategori Buku" 
+        parent="bookstore_book_menu_categ"
+        action="bookstore_bookcategory_action"
+        sequence="10"/>
+
+</odoo>
