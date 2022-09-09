@@ -5,3 +5,4 @@ access_bookstore_author,access.bookstore.author,model_bookstore_author,,1,1,1,1
 access_bookstore_publisher,access.bookstore.publisher,model_bookstore_publisher,,1,1,1,1
 access_bookstore_orders,access.bookstore.orders,model_bookstore_orders,,1,1,1,1
 access_bookstore_orderdetails,access.bookstore.orderdetails,model_bookstore_orderdetails,,1,1,1,1
+access_bookstore_supplier,access.bookstore.supplier,model_bookstore_supplier,,1,1,1,1

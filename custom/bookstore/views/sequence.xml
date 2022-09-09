@@ -3,6 +3,14 @@
     
     <data noupdate="1">
         
+        <record id="seq_bookstore_supplier" model="ir.sequence">
+            <field name="name">NO. Order</field>
+            <field name="code">bookstore.supplier</field>
+            <field name="prefix">SUP</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
         <record id="seq_bookstore_orders" model="ir.sequence">
             <field name="name">NO. Order</field>
             <field name="code">bookstore.orders</field>

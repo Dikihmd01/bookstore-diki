@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- bookstore.supplier tree view -->
+    <record id="bookstore_supplier_view_tree" model="ir.ui.view">
+        <field name="name">bookstore.supplier.view.tree</field>
+        <field name="model">bookstore.supplier</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="supplier_code"/>
+                <field name="name"/>
+                <field name="address"/>
+                <field name="book_ids"/>
+                <!-- <field name="price"/>
+                <field name="stock"/>
+                <field name="publisher_id"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- bookstore.supplier form view -->
+    <record id="bookstore_supplier_view_form" model="ir.ui.view">
+        <field name="name">Suplier</field>
+        <field name="model">bookstore.supplier</field>
+        <field name="arch" type="xml">
+            <form string="Form Supplier">
+                <sheet>
+                    <div class="row">
+                        <div class="container">
+                            <div class="oe_title">
+                                <div class="col-md-12">
+                                    <div class="oe_edit_only">
+                                        <label for="supplier_code" />
+                                    </div>
+                                    <b>
+                                        <field name="supplier_code" class="o_text_overflow"/>
+                                    </b>
+
+                                    <div class="oe_edit_only">
+                                        <label for="name" />
+                                    </div>
+                                    <h1>
+                                        <field name="name" class="o_text_overflow"/>
+                                    </h1>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <group name="Buku" string="Buku">
+                                            <field name="address"/>
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <group name="Kategori" string="Kategori">
+                                            <field name="book_ids" nolabel="1" />
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="bookstore_supplier_action" model="ir.actions.act_window">
+        <field name="name">Daftar Supplier</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bookstore.supplier</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="bookstore_supplier_menu_act"
+        name="Daftar Supplier" 
+        parent="bookstore_supplier_menu_categ"
+        action="bookstore_supplier_action"
+        sequence="10"/>
+
+</odoo>
