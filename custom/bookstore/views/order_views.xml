@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- bookstore.orders tree view -->
+    <record id="bookstore_orders_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Order</field>
+        <field name="model">bookstore.orders</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="buyer"/>
+                <field name="date_order"/>
+                <field name="total"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- bookstore.orders form view -->
+    <record id="bookstore_orders_view_form" model="ir.ui.view">
+        <field name="name">bookstore.orders.view.form</field>
+        <field name="model">bookstore.orders</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class="row">
+                        <div class="container">
+                            <div class="oe_title">
+                                <div class="col-md-12">
+                                    <div class="oe_edit_only">
+                                        <label for="name" string="No. Order" />
+                                    </div>
+                                    <h1><field name="name" class="o_text_overflow"/></h1>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <group name="Order" string="Buku">
+                                            <field name="buyer"/>
+                                            <field name="employee_id"/>
+                                            <field name="date_order"/>
+                                            <field name="total"/>
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <group name="Kategori" string="Kategori">
+                                            <field name="orderdetails_ids" nolabel="1">
+                                                <tree editable="bottom">
+                                                    <field name="book_id"/>
+                                                    <field name="price_per_book"/>
+                                                    <field name="qty"/>
+                                                    <field name="subtotal" sum="Total" />
+                                                </tree>
+                                            </field>
+                                    </group>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="bookstore_orders_action" model="ir.actions.act_window">
+        <field name="name">Daftar Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bookstore.orders</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="bookstore_orders_menu_act"
+        name="Order" 
+        parent="bookstore_orders_menu_categ"
+        action="bookstore_orders_action"
+        sequence="10"/>
+
+</odoo>

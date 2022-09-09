@@ -33,6 +33,7 @@
         'views/book_views.xml',
         'views/author_views.xml',
         'views/publisher_views.xml',
+        'views/order_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -16,4 +16,7 @@
     <!-- This Menu Item Must have a parent -->
     <menuitem id="bookstore_publisher_menu_categ" name="Penerbit" parent="bookstore_menu_root" sequence="13"/>
 
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="bookstore_orders_menu_categ" name="Order" parent="bookstore_menu_root" sequence="13"/>
+
 </odoo>
