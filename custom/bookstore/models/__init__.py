@@ -4,3 +4,4 @@ from . import models
 from . import book_category
 from . import book
 from . import author
+from . import publisher

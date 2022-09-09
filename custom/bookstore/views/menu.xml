@@ -13,4 +13,7 @@
     <!-- This Menu Item Must have a parent -->
     <menuitem id="bookstore_author_menu_categ" name="Penulis" parent="bookstore_menu_root" sequence="12"/>
 
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="bookstore_publisher_menu_categ" name="Penerbit" parent="bookstore_menu_root" sequence="13"/>
+
 </odoo>
