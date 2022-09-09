@@ -28,10 +28,15 @@
                                         <label for="category_code" string="Kode Kategori"/>
                                     </div>
                                     <b><field name="category_code" class="o_text_overflow"/></b>
+                                </div>
+                            </div>
 
-                                    <h1><field name="name" nolabel="1" /></h1>
-                                    <div class="oe_edit_only">
-                                        <label for="name" string="Nama Kategori"/>
+                            <div class="row">
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <group name="Penerbit" string="Penerbit">
+                                            <field name="name" />
+                                        </group>
                                     </div>
                                 </div>
                             </div>
