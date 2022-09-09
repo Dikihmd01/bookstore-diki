@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- bookstore.author tree view -->
+    <record id="bookstore_author_view_tree" model="ir.ui.view">
+        <field name="name">bookstore.author.view.tree</field>
+        <field name="model">bookstore.author</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="author_code"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- bookstore.author form view -->
+    <record id="bookstore_author_view_form" model="ir.ui.view">
+        <field name="name">bookstore.author.view.form</field>
+        <field name="model">bookstore.author</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <div class="row">
+                        <div class="container">
+                            <div class="oe_title">
+                                <div class="col-md-12">
+                                    <div class="oe_edit_only">
+                                        <label for="author_code" />
+                                    </div>
+                                    <b>
+                                        <field name="author_code" class="o_text_overflow"/>
+                                    </b>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <group name="Buku" string="Buku">
+                                            <field name="name" />
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="row">
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <group name="Kateogori" string="Kategori">
+                                            <field name="category_id" />
+                                        </group>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="bookstore_author_action" model="ir.actions.act_window">
+        <field name="name">Daftar Penulis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bookstore.author</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem
+        id="bookstore_author_menu_act"
+        name="Daftar Penulis" 
+        parent="bookstore_author_menu_categ"
+        action="bookstore_author_action"
+        sequence="10"/>
+
+</odoo>
