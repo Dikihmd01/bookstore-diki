@@ -19,6 +19,8 @@ class Book(models.Model):
     price = fields.Integer(string='Harga',
                             required=True)
     stock = fields.Integer(string='Stok')
+    publisher_id = fields.Many2one(comodel_name='bookstore.publisher', string='Penerbit')
+    
 
     @api.model
     def create(self, vals):

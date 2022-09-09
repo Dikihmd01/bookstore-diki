@@ -13,6 +13,7 @@
                 <field name="total_page"/>
                 <field name="price"/>
                 <field name="stock"/>
+                <field name="publisher_id"/>
             </tree>
         </field>
     </record>
@@ -59,8 +60,18 @@
                             <div class="row">
                                 <div class="container">
                                     <div class="col-md-12">
-                                        <group name="Kateogori" string="Kategori">
+                                        <group name="Kategori" string="Kategori">
                                             <field name="category_id" />
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <group name="Penerbit" string="Penerbit">
+                                            <field name="publisher_id" />
                                         </group>
                                     </div>
                                 </div>
