@@ -38,23 +38,25 @@ class BookCategory(models.Model):
                                 required=True,
                                 default='New')
     book_ids = fields.One2many(comodel_name='bookstore.book',
-                                inverse_name='category_id',
-                                string='Daftar Buku',
-                                required=True)
-    
+                               inverse_name='category_id',
+                               string='Daftar Buku',
+                               required=True)
+
     @api.constrains('name')
     def check_unique_name(self):
-        count = self.search_count([('name', '=', self.name), ('id', '!=', self.id)])
+        count = self.search_count(
+            [('name', '=', self.name), ('id', '!=', self.id)])
         if count > 0:
-            raise ValidationError('Kategori {} sudah ada di Database!'.format(self.name))
-    
+            raise ValidationError(
+                'Kategori {} sudah ada di Database!'.format(
+                    self.name))
+
     @api.model
     def create(self, vals):
         if vals.get('category_code', 'New') == 'New':
             vals['category_code'] = self.env['ir.sequence'].next_by_code(
                 'bookstore.bookcategory' or 'New'
             )
-        
+
         result = super(BookCategory, self).create(vals)
         return result
-    

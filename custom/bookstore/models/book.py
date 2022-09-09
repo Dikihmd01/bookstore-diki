@@ -7,22 +7,24 @@ class Book(models.Model):
 
     name = fields.Char(string='Judul Buku')
     book_code = fields.Char(string='Kode Buku',
-                                readonly=True,
-                                copy=False,
-                                required=True,
-                                default='New')
-    category_id = fields.Many2one(comodel_name='bookstore.bookcategory', 
-                                    string='Kategori',
-                                    ondelete='cascade',
-                                    required=True)
+                            readonly=True,
+                            copy=False,
+                            required=True,
+                            default='New')
+    category_id = fields.Many2one(comodel_name='bookstore.bookcategory',
+                                  string='Kategori',
+                                  ondelete='cascade',
+                                  required=True)
     total_page = fields.Integer(string='Total Halaman')
     price = fields.Integer(string='Harga',
-                            required=True)
+                           required=True)
     stock = fields.Integer(string='Stok')
-    publisher_id = fields.Many2one(comodel_name='bookstore.publisher', string='Penerbit')
-    supplier_id = fields.Many2one(comodel_name='bookstore.supplier', string='Supplier')
-    
-    
+    publisher_id = fields.Many2one(
+        comodel_name='bookstore.publisher',
+        string='Penerbit')
+    supplier_id = fields.Many2one(
+        comodel_name='bookstore.supplier',
+        string='Supplier')
 
     @api.model
     def create(self, vals):
@@ -30,10 +32,6 @@ class Book(models.Model):
             vals['book_code'] = self.env['ir.sequence'].next_by_code(
                 'bookstore.book' or 'New'
             )
-        
+
         result = super(Book, self).create(vals)
         return result
-    
-    
-    
-    

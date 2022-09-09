@@ -7,17 +7,17 @@ class Author(models.Model):
 
     name = fields.Char(string='Nama Penulis')
     author_code = fields.Char(tring='Kode Author',
-                                readonly=True,
-                                copy=False,
-                                required=True,
-                                default='New')
-    
+                              readonly=True,
+                              copy=False,
+                              required=True,
+                              default='New')
+
     @api.model
     def create(self, vals):
         if vals.get('author_code', 'New') == 'New':
             vals['author_code'] = self.env['ir.sequence'].next_by_code(
                 'bookstore.author' or 'New'
             )
-        
+
         result = super(Author, self).create(vals)
         return result
