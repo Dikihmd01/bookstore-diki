@@ -11,9 +11,6 @@
                 <field name="name"/>
                 <field name="address"/>
                 <field name="book_ids"/>
-                <!-- <field name="price"/>
-                <field name="stock"/>
-                <field name="publisher_id"/> -->
             </tree>
         </field>
     </record>
