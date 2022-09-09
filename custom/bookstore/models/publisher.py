@@ -11,6 +11,8 @@ class Publisher(models.Model):
                                 copy=False,
                                 required=True,
                                 default='New')
+    book_ids = fields.One2many(comodel_name='bookstore.book', inverse_name='publisher_id', string='Buku')
+    
 
     @api.model
     def create(self, vals):

@@ -42,6 +42,16 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="container">
+                                    <div class="col-md-12">
+                                        <group name="Daftar Buku" string="Daftar Buku">
+                                            <field name="book_ids" nolabel="1" />
+                                        </group>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- <div class="row">
