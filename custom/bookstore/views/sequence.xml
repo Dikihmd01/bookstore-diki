@@ -3,6 +3,14 @@
     
     <data noupdate="1">
 
+        <record id="seq_bookstore_book" model="ir.sequence">
+            <field name="name">Kode Buku</field>
+            <field name="code">bookstore.book</field>
+            <field name="prefix">BK</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
         <record id="seq_bookstore_bookcategory" model="ir.sequence">
             <field name="name">Kode Kategori Buku</field>
             <field name="code">bookstore.bookcategory</field>
