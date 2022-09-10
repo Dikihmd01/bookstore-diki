@@ -1,0 +1,13 @@
+<odoo>
+
+    <record id="report_orders_xlsx" model="ir.actions.report">
+        <field name="name">Order Excel</field>
+        <field name="model">bookstore.orders</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">bookstore.report_orders_xlsx</field>
+        <field name="report_file">bookstore.report_orders_xlsx</field>
+        <field name="binding_model_id" ref="model_bookstore_orders"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
