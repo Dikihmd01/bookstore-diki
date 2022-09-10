@@ -36,6 +36,7 @@
         'views/order_views.xml',
         'views/supplier_views.xml',
         'report/report.xml',
+        'report/invoice.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
