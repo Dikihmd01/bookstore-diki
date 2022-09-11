@@ -17,6 +17,35 @@
             </tree>
         </field>
     </record>
+    
+    <!-- bookstore.book search view -->
+    <record id="bookstore_book_view_search" model="ir.ui.view">
+        <field name="name">bookstore.book.view.search</field>
+        <field name="model">bookstore.book</field>
+        <field name="arch" type="xml">
+            <search string="Filter BUku">
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="book_code"/>
+                <field name="category_id"/>
+                <field name="total_page"/>
+                <field name="price"/>
+                <field name="stock"/>
+                <field name="publisher_id"/>
+                <separator/>
+                <filter name="readystock" string="Ready Stok"
+                        domain="[('stock', '>', 0)]" />
+                <group string="Group by" expand="1">
+                    <filter name="penerbit" string="Penerbit"
+                            context="{'group_by':'publisher_id', 'residual_visible':True}" />
+                </group>
+                <group string="Group by" expand="1">
+                    <filter name="kategori" string="Kategori"
+                            context="{'group_by':'category_id', 'residual_visible':True}" />
+                </group>
+            </search>
+        </field>
+    </record>
 
     <!-- bookstore.book form view -->
     <record id="bookstore_book_view_form" model="ir.ui.view">
