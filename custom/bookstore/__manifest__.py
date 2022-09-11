@@ -37,6 +37,7 @@
         'views/supplier_views.xml',
         'report/report.xml',
         'report/invoice.xml',
+        'wizard/new_book_wizard.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

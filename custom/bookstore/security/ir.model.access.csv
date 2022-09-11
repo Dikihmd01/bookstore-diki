@@ -6,3 +6,4 @@ access_bookstore_publisher,access.bookstore.publisher,model_bookstore_publisher,
 access_bookstore_orders,access.bookstore.orders,model_bookstore_orders,,1,1,1,1
 access_bookstore_orderdetails,access.bookstore.orderdetails,model_bookstore_orderdetails,,1,1,1,1
 access_bookstore_supplier,access.bookstore.supplier,model_bookstore_supplier,,1,1,1,1
+access_bookstore_newbook,access.bookstore.newbook,model_bookstore_newbook,,1,1,1,1

@@ -24,6 +24,9 @@
         <field name="model">bookstore.book</field>
         <field name="arch" type="xml">
             <form string="">
+                <header>
+                    <button string="Tambah Buku" name="%(bookstore.new_book_action_wizzard)d" type="action" class="btn btn-warning"/>
+                </header>
                 <sheet>
                     <div class="row">
                         <div class="container">
